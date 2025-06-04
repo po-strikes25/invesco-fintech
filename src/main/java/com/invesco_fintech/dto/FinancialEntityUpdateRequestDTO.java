@@ -1,0 +1,80 @@
+package com.invesco_fintech.dto;
+
+import com.invesco_fintech.enums.CompanyType;
+import com.invesco_fintech.enums.StateType;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.antlr.v4.runtime.misc.NotNull;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+public class FinancialEntityUpdateRequestDTO
+{
+    private Long        entityID;
+    private String      companyName;
+    private String      trustName;
+    private String      abn;
+    private String      acn;
+    private CompanyType companyType;
+    private StateType   registeredIn;
+
+    public Long getEntityID() {
+        return entityID;
+    }
+
+    public void setEntityID(Long entityID) {
+        this.entityID = entityID;
+    }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
+    public String getTrustName() {
+        return trustName;
+    }
+
+    public void setTrustName(String trustName) {
+        this.trustName = trustName;
+    }
+
+    public String getAbn() {
+        return abn;
+    }
+
+    public void setAbn(String abn) {
+        this.abn = abn;
+    }
+
+    public String getAcn() {
+        return acn;
+    }
+
+    public void setAcn(String acn) {
+        this.acn = acn;
+    }
+
+    public CompanyType getCompanyType() {
+        return companyType;
+    }
+
+    public void setCompanyType(CompanyType companyType) {
+        this.companyType = companyType;
+    }
+
+    public StateType getRegisteredIn() {
+        return registeredIn;
+    }
+
+    public void setRegisteredIn(StateType registeredIn) {
+        this.registeredIn = registeredIn;
+    }
+}

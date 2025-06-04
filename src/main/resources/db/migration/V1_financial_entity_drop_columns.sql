@@ -1,0 +1,12 @@
+ALTER TABLE financial_entity DROP COLUMN dob;
+ALTER TABLE financial_entity DROP COLUMN residency;
+ALTER TABLE financial_entity DROP COLUMN residency_status;
+ALTER TABLE financial_entity DROP COLUMN title;
+ALTER TABLE financial_entity DROP COLUMN web_url;
+ALTER TABLE financial_entity DROP COLUMN first_name;
+ALTER TABLE financial_entity DROP COLUMN last_name;
+ALTER TABLE financial_entity DROP COLUMN gender;
+ALTER TABLE financial_entity DROP COLUMN location;
+ALTER TABLE financial_entity DROP COLUMN marital_status;
+ALTER TABLE financial_entity DROP COLUMN permanent_australian_resident;
+ALTER TABLE financial_entity DROP COLUMN preferred_name;
