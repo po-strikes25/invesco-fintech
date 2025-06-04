@@ -75,15 +75,11 @@
             <groupId>jakarta.validation</groupId>
             <artifactId>jakarta.validation-api</artifactId>
         </dependency>
-
-		<!-- FLYWAY FOR DB MIGRATION SCRIPTS -->
-		<dependency>
-			<groupId>org.flywaydb</groupId>
-			<artifactId>flyway-core</artifactId>
-			<version>11.9.0</version>
-		</dependency>
-
 		<!-- LIQUIBASE FOR DB MIGRATION SCRIPTS -->
+		<dependency>
+			<groupId>org.liquibase</groupId>
+			<artifactId>liquibase-core</artifactId>
+		</dependency>
     </dependencies>
 
 	<build>

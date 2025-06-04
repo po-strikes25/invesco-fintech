@@ -1,0 +1,23 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="1" author="shilpi">
+        <!-- HAD DELETED DOB MANUALLY IN PGADMIN HENCE REMOVING FROM HERE -->
+        <!-- <dropColumn tableName="financial_entity" columnName="dob"/> -->
+        <dropColumn tableName="financial_entity" columnName="residency"/>
+        <dropColumn tableName="financial_entity" columnName="residency_status"/>
+        <dropColumn tableName="financial_entity" columnName="title"/>
+        <dropColumn tableName="financial_entity" columnName="web_url"/>
+        <dropColumn tableName="financial_entity" columnName="first_name"/>
+        <dropColumn tableName="financial_entity" columnName="last_name"/>
+        <dropColumn tableName="financial_entity" columnName="gender"/>
+        <dropColumn tableName="financial_entity" columnName="location"/>
+        <dropColumn tableName="financial_entity" columnName="marital_status"/>
+        <dropColumn tableName="financial_entity" columnName="permanent_australian_resident"/>
+        <dropColumn tableName="financial_entity" columnName="preferred_name"/>
+    </changeSet>
+
+</databaseChangeLog>

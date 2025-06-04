@@ -31,6 +31,11 @@ ALS0: Hibernate does not remove unused columns for safety — to avoid accidenta
 - psql -U postgres -h localhost -p 5433 -d postgres
 - user: postgres - password: root
 
+- UNINSTALLED POSTGRES
+- DOWNLOADED PG ADMIN AGAIN AND DOWNLOADED LIQUIBASE
+
+- SUCCESSFULLY RAN LIQUIBASE BUT AFTER RESOLVING SOME ISSUES
+
 
 
 
