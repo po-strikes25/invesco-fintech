@@ -36,6 +36,8 @@ ALS0: Hibernate does not remove unused columns for safety — to avoid accidenta
 
 - SUCCESSFULLY RAN LIQUIBASE BUT AFTER RESOLVING SOME ISSUES
 
+- FOR THE FIRST TIME JUST TAKE A GIT PULL AND THEN PUSH WHEN ADDING REMOTE ORIGIN FOR GIT
+
 
 
 

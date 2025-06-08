@@ -3,10 +3,13 @@ package com.invesco_fintech.controller;
 import com.invesco_fintech.dto.FinancialEntityCreateRequestDTO;
 import com.invesco_fintech.dto.FinancialEntityResponseDTO;
 import com.invesco_fintech.dto.FinancialEntityUpdateRequestDTO;
+import com.invesco_fintech.entity.FinancialEntity;
 import com.invesco_fintech.service.FinancialEntityService;
 import com.invesco_fintech.service.impl.FinancialEntityServiceImpl;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,14 +23,19 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class FinancialEntityController
 {
+    private static final Logger logger = LoggerFactory.getLogger(FinancialEntity.class);
+
     /*  final keyword is very important here
         else the lombok annotation required args constructor * */
     private final FinancialEntityServiceImpl financialEntityServiceImpl;
 
+    /* removed @Valid */
     @PostMapping("/post-financial-entity")
-    private ResponseEntity<FinancialEntityResponseDTO> createFinancialEntity(@RequestBody @Valid FinancialEntityCreateRequestDTO financialEntityCreateRequestDTO)
+    private ResponseEntity<FinancialEntityResponseDTO> createFinancialEntity(@RequestBody FinancialEntityCreateRequestDTO financialEntityCreateRequestDTO)
     {
         FinancialEntityResponseDTO financialEntityResponseDTO = financialEntityServiceImpl.createFinancialEntity(financialEntityCreateRequestDTO);
+
+        logger.info("Received entity: {}", financialEntityResponseDTO);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(financialEntityResponseDTO);
     }

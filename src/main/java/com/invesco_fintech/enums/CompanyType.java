@@ -2,8 +2,9 @@ package com.invesco_fintech.enums;
 
 public enum CompanyType
 {
-    PTY_LTD,
     INC,
-    PUBLIC,
-    SOLE_PROPRIETORSHIP
+    PTY_LTD,
+    SOLE_PROPRIETORSHIP,
+    LLC,
+    CORP
 }

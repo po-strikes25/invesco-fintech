@@ -28,9 +28,12 @@ public class FinancialEntityServiceImpl implements FinancialEntityService
 
         financialEntity.setCompanyName(financialEntityRequestDTO.getCompanyName());
         financialEntity.setTrustName(financialEntityRequestDTO.getTrustName());
+        financialEntity.setCompanyType(financialEntityRequestDTO.getCompanyType());
         financialEntity.setAbn(financialEntityRequestDTO.getAbn());
         financialEntity.setAcn(financialEntityRequestDTO.getAcn());
         financialEntity.setRegisteredIn(financialEntityRequestDTO.getRegisteredIn());
+
+        logger.info("Received entity: {}", financialEntity);
 
         financialEntityRepository.save(financialEntity);
 
