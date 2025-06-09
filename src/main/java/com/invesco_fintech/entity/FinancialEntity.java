@@ -28,7 +28,6 @@ public class FinancialEntity
     @Column(nullable = false)
     private String trustName;
 
-    /*postman is not taking companyType = "INC", instead takes null*/
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private CompanyType companyType;

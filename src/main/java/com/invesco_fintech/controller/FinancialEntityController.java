@@ -23,15 +23,15 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class FinancialEntityController
 {
-    private static final Logger logger = LoggerFactory.getLogger(FinancialEntity.class);
+    private static final Logger logger = LoggerFactory.getLogger(FinancialEntityController.class);
 
     /*  final keyword is very important here
         else the lombok annotation required args constructor * */
     private final FinancialEntityServiceImpl financialEntityServiceImpl;
 
-    /* removed @Valid */
     @PostMapping("/post-financial-entity")
-    private ResponseEntity<FinancialEntityResponseDTO> createFinancialEntity(@RequestBody FinancialEntityCreateRequestDTO financialEntityCreateRequestDTO)
+    private ResponseEntity<FinancialEntityResponseDTO> createFinancialEntity(
+            @RequestBody @Valid FinancialEntityCreateRequestDTO financialEntityCreateRequestDTO)
     {
         FinancialEntityResponseDTO financialEntityResponseDTO = financialEntityServiceImpl.createFinancialEntity(financialEntityCreateRequestDTO);
 
@@ -57,11 +57,15 @@ public class FinancialEntityController
         return ResponseEntity.status(HttpStatus.FOUND).body(financialEntityResponseDTO);
     }
 
-    @PutMapping("/put-financial-entity")
-    private ResponseEntity<FinancialEntityResponseDTO> updateFinancialEntity(@RequestBody @Valid FinancialEntityUpdateRequestDTO financialEntityUpdateRequestDTO)
+    @PutMapping("/put-financial-entity/{entityID}")
+    private ResponseEntity<FinancialEntityResponseDTO> updateFinancialEntity(
+            @RequestBody FinancialEntityUpdateRequestDTO financialEntityUpdateRequestDTO,
+            @PathVariable Long entityID)
     {
+        financialEntityUpdateRequestDTO.setEntityID(Long.valueOf(entityID));
+        logger.info("Received entity ID: {}", financialEntityUpdateRequestDTO);
         FinancialEntityResponseDTO financialEntityResponseDTO = financialEntityServiceImpl.updateFinancialEntity(financialEntityUpdateRequestDTO);
-
+        logger.info("Received entity: {}", financialEntityUpdateRequestDTO);
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(financialEntityResponseDTO);
     }
 

@@ -97,6 +97,8 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<!--For AWS EC2-->
+		<finalName>invesco-fintech-aws-exe</finalName>
 	</build>
 
 </project>

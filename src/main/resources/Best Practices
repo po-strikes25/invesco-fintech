@@ -38,8 +38,42 @@ ALS0: Hibernate does not remove unused columns for safety — to avoid accidenta
 
 - FOR THE FIRST TIME JUST TAKE A GIT PULL AND THEN PUSH WHEN ADDING REMOTE ORIGIN FOR GIT
 
+- CAREFUL TO ADD SETTER FOR ALL VARIABLES IN THE SERVICE IMPL CLASS
+
+- SOMETIMES PGADMIN DOES NOT RUN THE POSTGRES SERVER SO DO THE FOLLOWING MANUALLY:
+Open Services:
+
+Press Win + R → type services.msc → hit Enter.
+
+Look for PostgreSQL (like postgresql-x64-15, postgresql-14, etc.).
+
+If you see it:
+
+Check its status → if it’s not running, right-click → Start.
+
+- ALTER TABLE financial_entity DROP CONSTRAINT financial_entity_company_type_check;
+
+DEPLOYING APP IN AWS:
+- <finalName>invesco-fintech-aws-exe</finalName> IN POM.XML
 
 
+KT:
+Absolutely, Shilpi.
+I’ll guide you through the realistic end-to-end flow of how junior developers in most companies
+deploy a Spring Boot app to AWS, step by step — from coding in IntelliJ to deploying on EC2,
+possibly using S3 and Docker.
 
+- RUN THE APP LOCALLY: mvn spring-boot:run
+
+- WHILE LAUNCHING A NEW EC2 INSTANCE I MIGHT GET AN ERROR:
+"This account cannot launch T2 instances with Unlimited enabled...”"
+This error means that your AWS account doesn’t currently have permission to launch t2. instances with
+“Unlimited” mode enabled* — which is AWS’s default behavior now.
+
+- TERMINATE THE INSTANCE  ELSE WILL BE CHARGED FOR THE EBS VOL
+
+- USE PLACEHOLDERS IN LOG WITH SLF4J
+
+- ALWAYS HANDLE NPE(S)
 
 

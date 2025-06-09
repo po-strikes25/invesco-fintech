@@ -6,6 +6,8 @@ import com.invesco_fintech.dto.FinancialEntityUpdateRequestDTO;
 import com.invesco_fintech.entity.FinancialEntity;
 import com.invesco_fintech.repository.FinancialEntityRepository;
 import com.invesco_fintech.service.FinancialEntityService;
+import jakarta.persistence.EntityNotFoundException;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -68,16 +70,46 @@ public class FinancialEntityServiceImpl implements FinancialEntityService
     }
 
     @Override
+    @Transactional //what will this do?
     public FinancialEntityResponseDTO updateFinancialEntity(FinancialEntityUpdateRequestDTO financialEntityUpdateRequestDTO)
     {
-        FinancialEntity entity = financialEntityRepository.findById(financialEntityUpdateRequestDTO.getEntityID()).get();
+        logger.info("entity: {}", financialEntityUpdateRequestDTO);
 
-        entity.setTrustName(financialEntityUpdateRequestDTO.getTrustName());
-        entity.setCompanyName(financialEntityUpdateRequestDTO.getCompanyName());
-        entity.setAbn(financialEntityUpdateRequestDTO.getAbn());
-        entity.setAcn(financialEntityUpdateRequestDTO.getAcn());
-        entity.setCompanyType(financialEntityUpdateRequestDTO.getCompanyType());
-        entity.setRegisteredIn(financialEntityUpdateRequestDTO.getRegisteredIn());
+        FinancialEntity entity = financialEntityRepository.findById(financialEntityUpdateRequestDTO.getEntityID())
+                .orElseThrow(() -> new EntityNotFoundException("Financial Entity not found with ID:" + financialEntityUpdateRequestDTO.getEntityID()));
+
+        logger.info("entity: {}", entity);
+
+        if(financialEntityUpdateRequestDTO.getTrustName() != null)
+        {
+            entity.setTrustName(financialEntityUpdateRequestDTO.getTrustName());
+        }
+
+        if(financialEntityUpdateRequestDTO.getCompanyName() != null)
+        {
+            entity.setCompanyName(financialEntityUpdateRequestDTO.getCompanyName());
+        }
+
+
+        if(financialEntityUpdateRequestDTO.getAbn() != null)
+        {
+            entity.setAbn(financialEntityUpdateRequestDTO.getAbn());
+        }
+
+        if(financialEntityUpdateRequestDTO.getAcn() != null)
+        {
+            entity.setAcn(financialEntityUpdateRequestDTO.getAcn());
+        }
+
+        if(financialEntityUpdateRequestDTO.getCompanyType() != null)
+        {
+            entity.setCompanyType(financialEntityUpdateRequestDTO.getCompanyType());
+        }
+
+        if(financialEntityUpdateRequestDTO.getRegisteredIn() != null)
+        {
+            entity.setRegisteredIn(financialEntityUpdateRequestDTO.getRegisteredIn());
+        }
 
         financialEntityRepository.save(entity);
 
