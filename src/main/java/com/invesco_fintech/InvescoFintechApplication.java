@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class InvescoFintechApplication {
 
-	@GetMapping("/")
+	@GetMapping("/welcome")
 	public String welcomeInvestors()
 	{
 		return "Welcome to the AWS Deployment of Invesco Fintech ... !!!";

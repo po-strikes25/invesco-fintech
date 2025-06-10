@@ -76,4 +76,21 @@ This error means that your AWS account doesn’t currently have permission to la
 
 - ALWAYS HANDLE NPE(S)
 
+DOCKERFILE
+
+- RAN COMAMND :C:\Users\Shilpi Mazumdar\Desktop\imp_desktop_folders\co_product_prep\2025\revision_springboot-projects\invesco-fintech> docker build -t invesco-fintech-aws-exe.jar .
+IN THE DOCKER DESKTOP TERMINAL
+- docker image ls
+- INSTEAD OF RUNNING JUST THE APP WITH THIS: docker run -p 6868:8686 invesco-fintech-aws-exe.jar
+THIS DOES NOT USE DOCKER COMPOSE YML FILE SO >>>
+ >>> SPIN UP ALL THE CONTAINERS:
+
+
+ FINAL STEPS:
+ RUN >>> docker build -t invesco-fintech-aws-exe.jar
+ RUN >>> docker-compose up --build
+- incomplete
+
+
+UNIT TESTING: MOCKITO
 
